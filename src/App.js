@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import React, { useState } from 'react';
 import './App.css';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 
 
@@ -56,7 +57,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'yellow',
+        color: 'black'
+      }
     }
 
     let persons = null;
@@ -76,6 +81,10 @@ class App extends Component {
           </div>
       )
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'blue',
+        color: 'black'
+      };
     }
 
     // let classes = ["red", "bold"].join(" ");
@@ -87,20 +96,21 @@ class App extends Component {
       classes.push('bold')
     }
     return (
-      <div className="App">
-        <h1>WELCOME</h1>
-        <p className={classes.join(' ')}>Look at this HTML, but actually this is a JSX</p>
-        <button
+      <StyleRoot>
+        <div className="App">
+          <h1>WELCOME</h1>
+          <p className={classes.join(' ')}>Look at this HTML, but actually this is a JSX</p>
+          <button
           style={style}
-          onClick={this.togglePersonHandler}>Switch Name
-        </button>
+          onClick={this.togglePersonHandler}>Switch Name</button>
           {persons}
-      </div>
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);
 
 // const app = props =>  {
   
