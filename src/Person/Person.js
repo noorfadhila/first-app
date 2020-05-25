@@ -8,14 +8,9 @@ import Radium from 'radium';
 // ================= Lesson 2: configurable content with attributes ===================
 
 const person = (props) => {
-    const style = {
-        '@media (min-width: 500px)': {
-            width: '450px',
-            backgroundColor: 'salmon'
-        }
-    }
+
     return(
-        <div className="Person" style={style}>
+        <div className="Person">
             <p onClick={props.click}>I'm a {props.name} and I am {props.age} Years old</p>
             <p> {props.children} </p>
             <input type="text"  onChange={props.changed} value={props.name} />
