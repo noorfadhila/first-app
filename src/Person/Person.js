@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Person.css';
-import Radium from 'radium';
 //- no need import Component cause this is not extend component
 //- Lets make it modern with ES6 syntax
 //- this variable wont be change
@@ -37,4 +36,4 @@ const person = (props) => {
 
 
 // export the function as default of the file.
-export default Radium(person);
+export default person;
