@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
-import './Person.css';
-//- no need import Component cause this is not extend component
-//- Lets make it modern with ES6 syntax
-//- this variable wont be change
+import styled from 'styled-components';
+// import './Person.css';
 
-// ================= Lesson 2: configurable content with attributes ===================
+const StyleDiv = styled.div`
+        
+                    width: 60%;
+                    margin: 16px auto;
+                    border: 1px solid #eee;
+                    box-shadow: 0 2px 3px #ccc;
+                    padding: 16px;
+                    text-align: center;
 
+                    @media (min-width: 500px){
+
+                        width: 200px;
+                        background-color: salmon;
+
+                    }
+                `;
 const person = (props) => {
 
     return(
-        <div className="Person">
+        <StyleDiv>
+        
             <p onClick={props.click}>I'm a {props.name} and I am {props.age} Years old</p>
             <p> {props.children} </p>
             <input type="text"  onChange={props.changed} value={props.name} />
-        </div>
+        </StyleDiv>
     )
 };
-
-// class Person extends Component{
-//     render(){
-//     return <p>My name is {this.props.name} </p>
-//     }
-// }
-
-// ================= Lesson 2: dynamic content ===================
-// const person = () => {
-//     return <p>I'm a person and I am {Math.floor(Math.random() * 30)} Years old</p>
-// };
-
-// ================= Lesson 1: static content ===================
-// const person = () => {
-//     return <p>I'm a person</p>
-// };
-
 
 
 // export the function as default of the file.
