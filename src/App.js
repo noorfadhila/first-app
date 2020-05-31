@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 // import React, { useState } from 'react';
+import styled from 'styled-components';
 import './App.css';
 import Person from './Person/Person';
 
 
+const StyledButton = styled.button`
+  background-color: ${props => props.alt ? 'red' : 'green'};
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${props => props.alt ? 'salmon' : 'yellow'};
+    color: black;
+  }
+`
 
 class App extends Component {
   state = {
@@ -50,15 +64,6 @@ class App extends Component {
 
   render() {
 
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
-
     let persons = null;
 
     if(this.state.showPersons){
@@ -75,7 +80,6 @@ class App extends Component {
             })}
           </div>
       )
-      style.backgroundColor = 'red';
     }
 
     // let classes = ["red", "bold"].join(" ");
@@ -90,10 +94,10 @@ class App extends Component {
       <div className="App">
         <h1>WELCOME</h1>
         <p className={classes.join(' ')}>Look at this HTML, but actually this is a JSX</p>
-        <button
-          style={style}
+        <StyledButton
+          alt={this.state.showPersons}
           onClick={this.togglePersonHandler}>Switch Name
-        </button>
+        </StyledButton>
           {persons}
       </div>
     );
