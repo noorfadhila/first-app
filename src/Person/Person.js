@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Person.css';
+import classes from './Person.css';
 //- no need import Component cause this is not extend component
 //- Lets make it modern with ES6 syntax
 //- this variable wont be change
@@ -9,7 +9,7 @@ import './Person.css';
 const person = (props) => {
 
     return(
-        <div className="Person">
+        <div className={classes.Person}>
             <p onClick={props.click}>I'm a {props.name} and I am {props.age} Years old</p>
             <p> {props.children} </p>
             <input type="text"  onChange={props.changed} value={props.name} />

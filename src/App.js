@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import React, { useState } from 'react';
-import './App.css';
+import cssClasses from './App.css';
 import Person from './Person/Person';
 
 
@@ -50,16 +50,8 @@ class App extends Component {
 
   render() {
 
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
-
     let persons = null;
+    let btnClasses = [cssClasses.button]
 
     if(this.state.showPersons){
       persons = (
@@ -75,23 +67,24 @@ class App extends Component {
             })}
           </div>
       )
-      style.backgroundColor = 'red';
+      // style.backgroundColor = 'red';
+      btnClasses.push(cssClasses.red)
     }
 
     // let classes = ["red", "bold"].join(" ");
     let classes = [];
     if(this.state.person.length <= 2){
-      classes.push('red');
+      classes.push(cssClasses.red);
     }
     if(this.state.person.length <= 1){
-      classes.push('bold')
+      classes.push(cssClasses.bold)
     }
     return (
-      <div className="App">
+      <div className={cssClasses.App}>
         <h1>WELCOME</h1>
         <p className={classes.join(' ')}>Look at this HTML, but actually this is a JSX</p>
         <button
-          style={style}
+          className={btnClasses.join(' ')}
           onClick={this.togglePersonHandler}>Switch Name
         </button>
           {persons}
